@@ -1,0 +1,357 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13577,        349]
+NotebookOptionsPosition[     12074,        315]
+NotebookOutlinePosition[     12418,        330]
+CellTagsIndexPosition[     12375,        327]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Graphics", "[", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"0.9", ",", "0.9", ",", "0.9"}], "]"}], ",", 
+       RowBox[{"Rectangle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", 
+           RowBox[{"-", "1"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1"}], "}"}]}], "]"}], ",", "\[IndentingNewLine]",
+        "Thick", ",", "\[IndentingNewLine]", "Red", ",", 
+       RowBox[{"Arrow", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Cos", "[", "dir1", "]"}], ",", 
+            RowBox[{"Sin", "[", "dir1", "]"}]}], "}"}]}], "}"}], "]"}], ",", 
+       "\[IndentingNewLine]", "Blue", ",", 
+       RowBox[{"Arrow", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Cos", "[", "dir2", "]"}], ",", 
+            RowBox[{"Sin", "[", "dir2", "]"}]}], "}"}]}], "}"}], "]"}], ",", 
+       "\[IndentingNewLine]", "Green", ",", 
+       RowBox[{"Arrow", "[", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             RowBox[{"WeightedCircularMean", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"dir1", ",", "dir2"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"w1", ",", 
+                 RowBox[{"1", "-", "w1"}]}], "}"}]}], "]"}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"WeightedCircularMean", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"dir1", ",", "dir2"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"w1", ",", 
+                 RowBox[{"1", "-", "w1"}]}], "}"}]}], "]"}], "]"}]}], 
+           "\[IndentingNewLine]", "}"}]}], "\[IndentingNewLine]", "}"}], 
+        "]"}], ",", "\[IndentingNewLine]", "Black", ",", 
+       RowBox[{"FontSize", "\[Rule]", "15"}], ",", 
+       RowBox[{"Text", "[", 
+        RowBox[{
+         RowBox[{"ToString", "[", 
+          RowBox[{
+           RowBox[{"WeightedCircularMean", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"dir1", ",", "dir2"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"w1", ",", 
+               RowBox[{"1", "-", "w1"}]}], "}"}]}], "]"}], "/", 
+           RowBox[{"(", 
+            RowBox[{"2", "Pi"}], ")"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.75", ",", 
+           RowBox[{"-", "0.8"}]}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+      " ", "}"}], "]"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"dir1", ",", 
+        RowBox[{
+         RowBox[{"RandomReal", "[", "]"}], "2", "Pi"}]}], "}"}], ",", "0", 
+      ",", 
+      RowBox[{"2", "Pi"}], ",", 
+      RowBox[{"2", "Pi", " ", "0.01"}]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"dir2", ",", 
+        RowBox[{
+         RowBox[{"RandomReal", "[", "]"}], "2", "Pi"}]}], "}"}], ",", "0", 
+      ",", 
+      RowBox[{"2", "Pi"}], ",", 
+      RowBox[{"2", "Pi", " ", "0.01"}]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"w1", ",", "0.5"}], "}"}], ",", "0", ",", "1", ",", "0.01"}], 
+     "}"}]}], "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.8177277029820004`*^9, 3.8177277497790003`*^9}, {
+   3.817727780908*^9, 3.817727923509*^9}, {3.817728075078*^9, 
+   3.817728151491*^9}, {3.8177366043389997`*^9, 3.8177366984630003`*^9}, 
+   3.8177369043059998`*^9, {3.8177370064630003`*^9, 3.817737114032*^9}, {
+   3.817737148479*^9, 3.817737150083*^9}, {3.817737190848*^9, 
+   3.81773719715*^9}, {3.817737939516*^9, 3.817737949832*^9}},
+ CellLabel->
+  "In[211]:=",ExpressionUUID->"d49d4e18-856c-428c-9590-b6022096d0a8"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`dir1$$ = 0., $CellContext`dir2$$ = 
+    4.9637163926718735`, $CellContext`w1$$ = 0.53, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`dir1$$], 1.3181899279160367`}, 0, 2 Pi, 
+      0.06283185307179587}, {{
+       Hold[$CellContext`dir2$$], 4.975747058044027}, 0, 2 Pi, 
+      0.06283185307179587}, {{
+       Hold[$CellContext`w1$$], 0.5}, 0, 1, 0.01}}, Typeset`size$$ = {
+    360., {177., 182.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`dir1$46427$$ = 
+    0, $CellContext`dir2$46428$$ = 0, $CellContext`w1$46429$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`dir1$$ = 
+        1.3181899279160367`, $CellContext`dir2$$ = 
+        4.975747058044027, $CellContext`w1$$ = 0.5}, "ControllerVariables" :> {
+        Hold[$CellContext`dir1$$, $CellContext`dir1$46427$$, 0], 
+        Hold[$CellContext`dir2$$, $CellContext`dir2$46428$$, 0], 
+        Hold[$CellContext`w1$$, $CellContext`w1$46429$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Graphics[{
+         RGBColor[0.9, 0.9, 0.9], 
+         Rectangle[{-1, -1}, {1, 1}], Thick, Red, 
+         Arrow[{{0, 0}, {
+            Cos[$CellContext`dir1$$], 
+            Sin[$CellContext`dir1$$]}}], Blue, 
+         Arrow[{{0, 0}, {
+            Cos[$CellContext`dir2$$], 
+            Sin[$CellContext`dir2$$]}}], Green, 
+         Arrow[{{0, 0}, {
+            Cos[
+             $CellContext`WeightedCircularMean[{$CellContext`dir1$$, \
+$CellContext`dir2$$}, {$CellContext`w1$$, 1 - $CellContext`w1$$}]], 
+            Sin[
+             $CellContext`WeightedCircularMean[{$CellContext`dir1$$, \
+$CellContext`dir2$$}, {$CellContext`w1$$, 1 - $CellContext`w1$$}]]}}], Black, 
+         FontSize -> 15, 
+         Text[
+          
+          ToString[$CellContext`WeightedCircularMean[{$CellContext`dir1$$, \
+$CellContext`dir2$$}, {$CellContext`w1$$, 1 - $CellContext`w1$$}]/(2 Pi)], {
+          0.75, -0.8}]}], 
+      "Specifications" :> {{{$CellContext`dir1$$, 1.3181899279160367`}, 0, 2 
+         Pi, 0.06283185307179587}, {{$CellContext`dir2$$, 4.975747058044027}, 
+         0, 2 Pi, 0.06283185307179587}, {{$CellContext`w1$$, 0.5}, 0, 1, 
+         0.01}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{407., {286., 293.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.817727769902*^9, 3.817727837322*^9}, 
+   3.817727924381*^9, {3.81772813995*^9, 3.817728151792*^9}, 
+   3.817736664369*^9, {3.8177366986400003`*^9, 3.8177367252980003`*^9}, 
+   3.8177367603450003`*^9, 3.8177369045550003`*^9, {3.8177369651210003`*^9, 
+   3.817736966506*^9}, {3.8177370523929996`*^9, 3.817737114407*^9}, 
+   3.8177371511070004`*^9, 3.8177371976470003`*^9, {3.817737895475*^9, 
+   3.8177378988719997`*^9}, 3.817737951323*^9, {3.8177380080480003`*^9, 
+   3.817738010382*^9}},
+ CellLabel->
+  "Out[211]=",ExpressionUUID->"297f5688-6b6d-4e0a-9279-658e1c8f2556"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"WeightedCircularMean", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"d1", ",", "d2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"w1", ",", 
+     RowBox[{"1", "-", "w1"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.817737909756*^9},ExpressionUUID->"0c82bb9c-5084-418a-8e42-3a0543b17d8a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"WeightedCircularMean", "[", 
+   RowBox[{"angles_", ",", "weights_"}], "]"}], ":=", 
+  RowBox[{"Mod", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"weights", ".", "angles"}], "+", 
+     RowBox[{
+      RowBox[{"Floor", "[", 
+       RowBox[{
+        RowBox[{"Abs", "[", 
+         RowBox[{
+          RowBox[{"Differences", "[", "angles", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "]"}], "/", "Pi"}], "]"}], "Pi"}]}],
+     ",", 
+    RowBox[{"2", "Pi"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.817728705152*^9, 3.8177287370550003`*^9}, {
+   3.81773651725*^9, 3.817736596771*^9}, {3.817736799487*^9, 
+   3.817736809054*^9}, 3.817736881791*^9, {3.8177372206689997`*^9, 
+   3.817737223711*^9}},
+ CellLabel->
+  "In[202]:=",ExpressionUUID->"3d2de351-3c77-4a24-ae0a-f43dcc5454a8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"WeightedCircularMean", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"1.31947", ",", "4.96372"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0.63", ",", 
+      RowBox[{"1", "-", "0.63"}]}], "}"}]}], "]"}], "/", 
+  RowBox[{"(", 
+   RowBox[{"2", "Pi"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.817736916189*^9, 3.817736945949*^9}, {
+   3.8177372351029997`*^9, 3.817737241676*^9}, {3.8177372761099997`*^9, 
+   3.817737277976*^9}, {3.817737920156*^9, 3.817737927947*^9}, 
+   3.817737960443*^9, {3.817738017068*^9, 3.8177380435950003`*^9}},
+ CellLabel->
+  "In[212]:=",ExpressionUUID->"cbb0b631-6c41-4155-bac0-8c6100faf4fd"],
+
+Cell[BoxData["0.92460032126564`"], "Output",
+ CellChangeTimes->{{3.817736929519*^9, 3.817736946104*^9}, {
+   3.8177372274440002`*^9, 3.817737242344*^9}, 3.817737278171*^9, 
+   3.817737928767*^9, 3.817738044624*^9},
+ CellLabel->
+  "Out[212]=",ExpressionUUID->"f03ef8a3-fde2-447d-a0e1-0a4086dbad1b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["dir1"], "Input",
+ CellChangeTimes->{{3.817737870222*^9, 3.8177378712939997`*^9}},
+ CellLabel->
+  "In[206]:=",ExpressionUUID->"5e2de499-3bdd-42ae-bd7f-ab997e82b6a0"],
+
+Cell[BoxData["2.0734511513692637`"], "Output",
+ CellChangeTimes->{3.817737871704*^9},
+ CellLabel->
+  "Out[206]=",ExpressionUUID->"0fd753c8-35ab-45ec-8306-35633d78006f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["dir2"], "Input",
+ CellChangeTimes->{{3.817737873084*^9, 3.817737875451*^9}},
+ CellLabel->
+  "In[207]:=",ExpressionUUID->"fce9e584-2f93-4167-ac60-fce0c7ec5ffa"],
+
+Cell[BoxData["3.518583772020569`"], "Output",
+ CellChangeTimes->{3.8177378758129997`*^9},
+ CellLabel->
+  "Out[207]=",ExpressionUUID->"28a383bb-a969-4132-9a73-89ee10ab9306"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["w"], "Input",
+ CellChangeTimes->{{3.8177378781870003`*^9, 3.817737881019*^9}},
+ CellLabel->
+  "In[209]:=",ExpressionUUID->"936d4582-51d2-42a0-bb54-438df39226f2"],
+
+Cell[BoxData["w"], "Output",
+ CellChangeTimes->{{3.817737879292*^9, 3.817737881222*^9}},
+ CellLabel->
+  "Out[209]=",ExpressionUUID->"b997d7e7-8041-4375-848f-112e4bc31cc5"]
+}, Open  ]]
+},
+WindowSize->{778, 837},
+WindowMargins->{{147, Automatic}, {473, Automatic}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 4415, 112, 409, "Input",ExpressionUUID->"d49d4e18-856c-428c-9590-b6022096d0a8"],
+Cell[4998, 136, 3761, 74, 598, "Output",ExpressionUUID->"297f5688-6b6d-4e0a-9279-658e1c8f2556"]
+}, Open  ]],
+Cell[8774, 213, 321, 9, 28, "Input",ExpressionUUID->"0c82bb9c-5084-418a-8e42-3a0543b17d8a"],
+Cell[9098, 224, 819, 22, 48, "Input",ExpressionUUID->"3d2de351-3c77-4a24-ae0a-f43dcc5454a8"],
+Cell[CellGroupData[{
+Cell[9942, 250, 659, 16, 28, "Input",ExpressionUUID->"cbb0b631-6c41-4155-bac0-8c6100faf4fd"],
+Cell[10604, 268, 297, 5, 32, "Output",ExpressionUUID->"f03ef8a3-fde2-447d-a0e1-0a4086dbad1b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10938, 278, 178, 3, 28, "Input",ExpressionUUID->"5e2de499-3bdd-42ae-bd7f-ab997e82b6a0"],
+Cell[11119, 283, 168, 3, 32, "Output",ExpressionUUID->"0fd753c8-35ab-45ec-8306-35633d78006f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11324, 291, 173, 3, 28, "Input",ExpressionUUID->"fce9e584-2f93-4167-ac60-fce0c7ec5ffa"],
+Cell[11500, 296, 172, 3, 32, "Output",ExpressionUUID->"28a383bb-a969-4132-9a73-89ee10ab9306"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11709, 304, 175, 3, 28, "Input",ExpressionUUID->"936d4582-51d2-42a0-bb54-438df39226f2"],
+Cell[11887, 309, 171, 3, 32, "Output",ExpressionUUID->"b997d7e7-8041-4375-848f-112e4bc31cc5"]
+}, Open  ]]
+}
+]
+*)
+
