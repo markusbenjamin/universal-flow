@@ -1,5 +1,5 @@
 var grains = [];
-var effect = 0.1;
+var effect = 0.5;
 var img;
 
 function preload() {
@@ -23,7 +23,7 @@ function setup() {
 }
 
 function draw() {
-  runGrains(1);
+  runGrains(10);
 }
 
 function runGrains(speed) {
@@ -40,13 +40,13 @@ class Grain {
     this.regenerate();
   }
 
-  regenerate(){
+  regenerate() {
     var a = random(TAU);
-    var r = random(100);
-    this.x = width*0.5+r*cos(a);
-    this.y = height*0.5+r*sin(a);
-    this.dir = random(TAU);
-    this.vel = random(0.01,1);
+    var r = random(400);
+    this.x = width * 0.5 + r * cos(a);
+    this.y = height * 0.5 + r * sin(a);
+    this.dir = getHue(this.x,this.y)*TAU;
+    this.vel = 1;
   }
 
   move(torus) {
@@ -57,14 +57,14 @@ class Grain {
     else {
       this.x += this.vel * cos(this.dir);
       this.y += this.vel * sin(this.dir);
-      if(this.x<0 || this.x>width || this.y<0 || this.y>height){
+      if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
         this.regenerate();
       }
     }
   }
 
   effect() {
-    stroke(0, 0.5);
+    stroke(0, 0.05);
     point(this.x, this.y);
     this.dir = weightedCircularMean(this.dir, getHue(this.x, this.y) * TAU, effect);
   }
@@ -80,7 +80,6 @@ function getHue(x, y) {
   colorMode(HSB, 1);
   return h;
 }
-
 
 function getImgHue(x, y) {
   colorMode(RGB, 255);
