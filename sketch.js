@@ -19,7 +19,7 @@ function setup() {
 }
 
 function draw() {
-  runGrains(5000);
+  runGrains(100);
 }
 
 function runGrains(speed) {
