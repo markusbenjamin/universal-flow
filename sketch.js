@@ -3,7 +3,7 @@ var effect = 0.5;
 var img;
 
 function preload() {
-  img = loadImage('beno.png');
+  img = loadImage('bala.png');
 }
 
 function setup() {
@@ -13,7 +13,7 @@ function setup() {
   noFill();
   noStroke();
 
-  var grainNum = 100;
+  var grainNum = 10;
   for (var i = 0; i < grainNum; i++) {
     grains.push(new Grain());
   }
@@ -23,7 +23,7 @@ function setup() {
 }
 
 function draw() {
-  runGrains(10);
+  runGrains(100);
 }
 
 function runGrains(speed) {
