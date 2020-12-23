@@ -1,9 +1,13 @@
 var grains = [];
-var affect = 0.4;
-var effect = 0.6;
+var effect = 0.1;
+var img;
+
+function preload() {
+  img = loadImage('beno.png');
+}
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(img.width, img.height);
   colorMode(HSB, 1);
   rectMode(CENTER)
   noFill();
@@ -11,10 +15,10 @@ function setup() {
 
   var grainNum = 100;
   for (var i = 0; i < grainNum; i++) {
-    grains.push(new Grain(random(width), random(width), TWO_PI * random(1), random(2)));
+    grains.push(new Grain());
   }
 
-  background(0);
+  image(img, 0, 0);
   loadPixels();
 }
 
@@ -25,44 +29,49 @@ function draw() {
 function runGrains(speed) {
   for (var i = 0; i < speed; i++) {
     for (var grain of grains) {
-      grain.move();
-      grain.affectAndEffect();
+      grain.move(false);
+      grain.effect();
     }
   }
-
 }
 
 class Grain {
-  constructor(xPos, yPos, dir, vel) {
-    this.pos = createVector(xPos, yPos);
-    this.dir = dir;
-    this.vel = vel;
+  constructor() {
+    this.regenerate();
   }
 
-  move() {
-    this.pos.x = (width + this.pos.x + this.vel * cos(this.dir)) % width;
-    this.pos.y = (height + this.pos.y + this.vel * sin(this.dir)) % height;
+  regenerate(){
+    var a = random(TAU);
+    var r = random(100);
+    this.x = width*0.5+r*cos(a);
+    this.y = height*0.5+r*sin(a);
+    this.dir = random(TAU);
+    this.vel = random(0.01,1);
   }
 
-  affectAndEffect() {
-    var currentHue = getHue(this.pos.x, this.pos.y);
-    var newHue = weightedCircularMean(currentHue * TWO_PI, this.dir, affect) / TWO_PI;
-    var newDir = weightedCircularMean(this.dir, currentHue * TWO_PI, effect);
-
-    if (checkArrayEquality(get(this.pos.x, this.pos.y), [0, 0, 0, 255])) {
-      stroke(this.dir / TWO_PI, 1, 1);
-      point(this.pos.x, this.pos.y);
+  move(torus) {
+    if (torus) {
+      this.x = (width + this.x + this.vel * cos(this.dir)) % width;
+      this.y = (height + this.y + this.vel * sin(this.dir)) % height;
     }
     else {
-      stroke(newHue, 1, 1);
-      point(this.pos.x, this.pos.y);
-      this.dir = newDir;
+      this.x += this.vel * cos(this.dir);
+      this.y += this.vel * sin(this.dir);
+      if(this.x<0 || this.x>width || this.y<0 || this.y>height){
+        this.regenerate();
+      }
     }
+  }
+
+  effect() {
+    stroke(0, 0.5);
+    point(this.x, this.y);
+    this.dir = weightedCircularMean(this.dir, getHue(this.x, this.y) * TAU, effect);
   }
 }
 
 function weightedCircularMean(d1, d2, w2) {
-  return ((1 - w2) * d1 + w2 * d2 + PI * floor(abs(d2 - d1) / PI)) % TWO_PI;
+  return ((1 - w2) * d1 + w2 * d2 + PI * floor(abs(d2 - d1) / PI)) % TAU;
 }
 
 function getHue(x, y) {
@@ -70,6 +79,28 @@ function getHue(x, y) {
   var h = hue(color(get(x, y))) / 360;
   colorMode(HSB, 1);
   return h;
+}
+
+
+function getImgHue(x, y) {
+  colorMode(RGB, 255);
+  var h = hue(color(img.get(x, y))) / 360;
+  colorMode(HSB, 1);
+  return h;
+}
+
+function getImgSat(x, y) {
+  colorMode(RGB, 255);
+  var s = saturation(color(img.get(x, y))) / 100;
+  colorMode(HSB, 1);
+  return s;
+}
+
+function getImgBrg(x, y) {
+  colorMode(RGB, 255);
+  var b = brightness(color(img.get(x, y))) / 100;
+  colorMode(HSB, 1);
+  return b;
 }
 
 function checkArrayEquality(array1, array2) {
