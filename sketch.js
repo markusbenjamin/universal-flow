@@ -3,7 +3,7 @@ var effect = 0.5;
 var img;
 
 function preload() {
-  img = loadImage('bala.png');
+  img = loadImage('csir.jpg');
 }
 
 function setup() {
@@ -13,7 +13,7 @@ function setup() {
   noFill();
   noStroke();
 
-  var grainNum = 10;
+  var grainNum = 600;
   for (var i = 0; i < grainNum; i++) {
     grains.push(new Grain());
   }
@@ -23,7 +23,7 @@ function setup() {
 }
 
 function draw() {
-  runGrains(100);
+  runGrains(1);
 }
 
 function runGrains(speed) {
@@ -42,7 +42,7 @@ class Grain {
 
   regenerate() {
     var a = random(TAU);
-    var r = random(400);
+    var r = random(700);
     this.x = width * 0.5 + r * cos(a);
     this.y = height * 0.5 + r * sin(a);
     this.dir = getHue(this.x,this.y)*TAU;
@@ -64,7 +64,7 @@ class Grain {
   }
 
   effect() {
-    stroke(0, 0.05);
+    stroke(this.dir/TAU,0.8,1, 0.09);
     point(this.x, this.y);
     this.dir = weightedCircularMean(this.dir, getHue(this.x, this.y) * TAU, effect);
   }
