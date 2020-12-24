@@ -3,7 +3,7 @@ var effect = 0.5;
 var img;
 
 function preload() {
-  img = loadImage('csir.jpg');
+  img = loadImage('aze.jpg');
 }
 
 function setup() {
@@ -64,7 +64,7 @@ class Grain {
   }
 
   effect() {
-    stroke(this.dir/TAU,0.8,1, 0.09);
+    stroke(this.dir/TAU, 0.09);
     point(this.x, this.y);
     this.dir = weightedCircularMean(this.dir, getHue(this.x, this.y) * TAU, effect);
   }
