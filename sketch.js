@@ -3,7 +3,7 @@ var affect = 0.4;
 var effect = 0.6;
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(100, 100);
   colorMode(HSB, 1);
   rectMode(CENTER)
   noFill();
@@ -19,7 +19,7 @@ function setup() {
 }
 
 function draw() {
-  runGrains(1);
+  runGrains(1000);
 }
 
 function runGrains(speed) {
